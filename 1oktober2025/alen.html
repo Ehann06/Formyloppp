@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter Spesial untuk Alenkuuu 💌</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .envelope {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            padding: 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            animation: float 6s ease-in infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .title {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .date {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+            line-height: 1.8;
+            font-size: 1.1em;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .photo-section {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #ff6b6b;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ffafbd, #ffc3a0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 3em;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .message {
+            text-align: justify;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 10px;
+            font-style: italic;
+            font-size: 1.2em;
+            color: #ff6b6b;
+        }
+
+        .interactive-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-top: 3px solid #ff6b6b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .music-player {
+            background: white;
+            border-radius: 15px;
+            padding: 15px 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .music-info {
+            flex-grow: 1;
+        }
+
+        .music-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .music-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .control-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            background: #ff5252;
+            transform: scale(1.1);
+        }
+
+        .love-button {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .love-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: white;
+            opacity: 0.8;
+        }
+
+        /* Progress bar for music */
+        .progress-container {
+            width: 100%;
+            height: 5px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .progress {
+            height: 100%;
+            background: #ff6b6b;
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .photo-frame {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+                font-size: 1em;
+            }
+            
+            .music-player {
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="envelope">
+            <div class="header">
+                <div class="hearts" id="heartsContainer"></div>
+                <h1 class="title">💌 Untuk Pacarku Alorena 💌</h1>
+                <p class="date">1 Oktober</p>
+            </div>
+            
+            <div class="content">
+                <div class="photo-section">
+                    <div class="photo-frame">
+                        <!-- Ganti dengan foto kalian -->
+                        <img src="Alenn.jpg" alt="Foto Kita">
+                    
+                    </div>
+                </div>
+                
+                <div class="message">
+                    <p>Sayangku Alennn,</p>
+                </div>
+                
+                <div class="message">
+                    <p>Aku cuma mau bilang, thank you for always being with me selama ini. Dari hari-hari yang penuh tawa sampai momen-momen susah, kamu selalu ada buat aku. You don’t know how much it means to me — kamu bukan cuma pacar, tapi juga sahabat terbaik, partner in crime, dan orang yang selalu bikin aku merasa lengkap.</p>
+                </div>
+                
+                <div class="message">
+                    <p>Every single day with you feels special. Sometimes kita cuma ngobrol hal random, sometimes kita serious, but still, I love every moment. Kamu itu reason kenapa aku bisa semangat jalanin hari-hari.</p>
+                </div>
+                
+                <div class="message">
+                    <p>I know I’m not perfect, but I promise to always give the best version of me for us. To keep supporting you, loving you, and standing by your side. Because honestly, life feels so much better with you in it.</p>
+                </div>
+                
+                <div class="signature">
+                    <p>Dengan cinta yang akan selalu tumbuh<br>
+                    <strong id="Raihan">Hanjud</strong></p>
+                </div>
+            </div>
+            
+            <div class="interactive-section">
+                <div class="music-player">
+                    <div class="music-info">
+                        <div class="music-title">Lagu Romantis Kita</div>
+                        <div class="progress-container" id="progressContainer">
+                            <div class="progress" id="progress"></div>
+                        </div>
+                    </div>
+                    <div class="music-controls">
+                        <button class="control-btn" id="prevBtn">
+                            <i class="fas fa-backward"></i>
+                        </button>
+                        <button class="control-btn" id="playBtn">
+                            <i class="fas fa-play" id="playIcon"></i>
+                        </button>
+                        <button class="control-btn" id="nextBtn">
+                            <i class="fas fa-forward"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <button class="love-button" onclick="showSecretMessage()">
+                    💖 Klik untuk Pesan Rahasia 💖
+                </button>
+                
+                <div id="secretMessage" class="hidden-message">
+                    <h3>Pesan Khusus untukmu! ✨</h3>
+                    <p>"So, di Hari Pacar Sedunia ini, I just wanna remind you I love you so freaking much, more than words could ever explain. You’re my forever, my always, my everything.💕"</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Dibuat dengan penuh kasih sayangg </p>
+        </div>
+    </div>
+
+    <script>
+        // Data musik - ganti dengan lagu favorit kalian
+        const playlist = [
+            {
+                title: "My love ❤️",
+                src: "Lagu_pertama.mp3"
+            },
+            {
+                title: "Oktober o nya apa?", 
+                src: "Lagu_kedua.mp3"
+            },
+            {
+                title: "Mimi cucu",
+                src: "Lagu_ketiga.mp3"
+            }
+        ];
+
+        // Elemen DOM
+        const audioPlayer = new Audio();
+        const playBtn = document.getElementById('playBtn');
+        const playIcon = document.getElementById('playIcon');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progress = document.getElementById('progress');
+        const progressContainer = document.getElementById('progressContainer');
+        const musicTitle = document.querySelector('.music-title');
+
+        let currentSongIndex = 0;
+        let isPlaying = false;
+
+        // Fungsi untuk memuat lagu
+        function loadSong(songIndex) {
+            const song = playlist[songIndex];
+            musicTitle.textContent = song.title;
+            audioPlayer.src = song.src;
+            audioPlayer.load();
+        }
+
+        // Fungsi untuk memutar atau menjeda lagu
+        function togglePlay() {
+            if (isPlaying) {
+                pauseSong();
+            } else {
+                playSong();
+            }
+        }
+
+        // Fungsi memutar lagu
+        function playSong() {
+            isPlaying = true;
+            playIcon.classList.remove('fa-play');
+            playIcon.classList.add('fa-pause');
+            audioPlayer.play();
+        }
+
+        // Fungsi menjeda lagu
+        function pauseSong() {
+            isPlaying = false;
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-play');
+            audioPlayer.pause();
+        }
+
+        // Fungsi lagu sebelumnya
+        function prevSong() {
+            currentSongIndex--;
+            if (currentSongIndex < 0) {
+                currentSongIndex = playlist.length - 1;
+            }
+            loadSong(currentSongIndex);
+            if (isPlaying) {
+                playSong();
+            }
+        }
+
+        // Fungsi lagu selanjutnya
+        function nextSong() {
+            currentSongIndex++;
+            if (currentSongIndex > playlist.length - 1) {
+                currentSongIndex = 0;
+            }
+            loadSong(currentSongIndex);
+            if (isPlaying) {
+                playSong();
+            }
+        }
+
+        // Update progress bar
+        function updateProgress(e) {
+            const { duration, currentTime } = e.srcElement;
+            const progressPercent = (currentTime / duration) * 100;
+            progress.style.width = `${progressPercent}%`;
+        }
+
+        // Set progress bar ketika diklik
+        function setProgress(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audioPlayer.duration;
+            
+            audioPlayer.currentTime = (clickX / width) * duration;
+        }
+
+        // Create floating hearts
+        function createHearts() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            const hearts = ['💖', '💕', '💗', '💓', '💞', '💝'];
+            
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 6 + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        // Show secret message
+        function showSecretMessage() {
+            const message = document.getElementById('secretMessage');
+            const button = document.querySelector('.love-button');
+            
+            if (message.style.display === 'block') {
+                message.style.display = 'none';
+                button.textContent = '💖 Klik untuk Pesan Rahasia 💖';
+            } else {
+                message.style.display = 'block';
+                button.textContent = '💝 Tutup Pesan 💝';
+                
+                // Add confetti effect
+                createConfetti();
+            }
+        }
+
+        // Simple confetti effect
+        function createConfetti() {
+            const confettiContainer = document.querySelector('.interactive-section');
+            const confettiColors = ['#ff6b6b', '#ff8e8e', '#ffd8d8', '#fff5f5'];
+            
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'absolute';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+                confetti.style.borderRadius = '50%';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '0';
+                confetti.style.opacity = '0';
+                confetti.style.animation = `confettiFall ${Math.random() * 2 + 1}s ease-in forwards`;
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                
+                confettiContainer.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }
+            
+            // Add confetti animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes confettiFall {
+                    0% {
+                        transform: translateY(-20px) rotate(0deg);
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: translateY(100px) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createHearts();
+            loadSong(currentSongIndex);
+            
+            // Event Listeners untuk musik
+            playBtn.addEventListener('click', togglePlay);
+            prevBtn.addEventListener('click', prevSong);
+            nextBtn.addEventListener('click', nextSong);
+            audioPlayer.addEventListener('timeupdate', updateProgress);
+            progressContainer.addEventListener('click', setProgress);
+            audioPlayer.addEventListener('ended', nextSong);
+            
+            // Add typing effect to messages
+            const messages = document.querySelectorAll('.message p');
+            messages.forEach((message, index) => {
+                const text = message.textContent;
+                message.textContent = '';
+                
+                setTimeout(() => {
+                    let i = 0;
+                    const typing = setInterval(() => {
+                        if (i < text.length) {
+                            message.textContent += text.charAt(i);
+                            i++;
+                        } else {
+                            clearInterval(typing);
+                        }
+                    }, 50);
+                }, index * 1000);
+            });
+            
+            // Set nama pengguna
+            document.getElementById('myName').textContent = "Nama Kamu";
+        });
+    </script>
+</body>
+</html>
